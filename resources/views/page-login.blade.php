@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <style media="screen">
 body {
-background: linear-gradient(-45deg, #22ff67, #0b4a1f);
+background: linear-gradient(-45deg, #6eca33, #14b291);
 background-size: 400% 400%;
 animation: gradient 30s ease infinite;
 }
@@ -30,8 +30,8 @@ animation: gradient 30s ease infinite;
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href=" {{asset('images/favicon.png')}}">
-    <link rel="shortcut icon" href=" {{asset('images/favicon.png')}}">
+    <link rel="apple-touch-icon" href=" {{asset('images/logo2.png')}}">
+    <link rel="shortcut icon" href=" {{asset('images/logo2.png')}}">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" rel="stylesheet" />
@@ -109,7 +109,7 @@ font-family: 'Roboto', sans-serif;
                 <br><br>
                         <div class="form-group">
                             <label style="color: #000000">Nombre de usuario</label>
-                            <input id="username" type="text" class="form-control" placeholder="Nombre">
+                            <input id="username" type="text" class="form-control" placeholder="Nombre"  onkeypress="return soloLetras(event)">
                         </div>
 
                         <div class="form-group">
