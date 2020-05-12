@@ -13,30 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', function () {
-    return view('page-login');
-})->name('login');
 
-Route::get('/', function () {
-    return view('page-login');
-});
+//usuarios
+Route::get('/', 'usuariosController@iniciarSesion');
+Route::get('/login', 'usuariosController@iniciarSesion');
+Route::get('/usuarios', 'usuariosController@listar');
+Route::get('/cuenta', 'usuariosController@informacion');
+//usuarios
 
-Route::get('/dashboard', function () {
-    return view('index');
-});
+//pagina principal
+Route::get('/dashboard', 'usuariosController@dashboard');
+//pagina principal
 
-Route::get('/calendario', function () {
-    return view('calendar');
-});
-
-// reuniones
+// actividades
 Route::get('/reuniones', 'reunionesController@listar');
+Route::get('/calendario', 'reunionesController@verCalendario');
 Route::post('/reuniones/crear', 'reunionesController@crear');
-// reuniones
+// actividades
 
 // noticias
 Route::get('/noticias', 'noticiasController@inicio');
 Route::get('/noticias/redactar', 'noticiasController@redactar');
+Route::get('/noticias/cuerpo', 'noticiasController@cuerpo');
 Route::post('/noticias/redactar/nuevo', 'noticiasController@nuevo');
 // FIN:noticias
 
@@ -45,36 +43,19 @@ Route::get('/vecinos', 'vecinosController@listar');
 Route::post('/vecinos/crear', 'vecinosController@crear');
 // FIN:vecinos
 
-// reuniones
+// contactos
 Route::get('/contactos', 'contactosController@listar');
 Route::post('/contactos/crear', 'contactosController@crear');
-// FIN:reuniones
+// FIN:contactos
 
+// mensajes
+Route::get('/buzon', 'mensajesController@buzon');
+// mensajes
 
-Route::get('/usuarios', function () {
-    return view('tabla_usuarios');
-});
+// estadisticas
+Route::get('/estadisticas', 'estadisticasController@mostrar');
+// estadisticas
 
-Route::get('/formato-noticia', function () {
-    return view('cuerpo_noticia');
-});
-
-Route::get('/cuenta', function () {
-    return view('user_info');
-});
-
-Route::get('/estadisticas', function () {
-    return view('estadisticas');
-});
-
-
-
-
-
-Route::get('/buzon', function () {
-    return view('buzon');
-});
-
-Route::get('/notificaciones', function () {
-    return view('notificaciones');
-});
+//notificaciones
+Route::get('/notificaciones', 'notificacionesController@listar');
+//notificaciones

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class vecinosController extends Controller
 {
     public function listar() {
-      return view('vecinos');
+      return view('vecinos.vecinos');
     }
 
     public function crear(Request $request) {

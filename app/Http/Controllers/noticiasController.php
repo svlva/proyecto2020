@@ -7,11 +7,15 @@ use Illuminate\Http\Request;
 class noticiasController extends Controller
 {
   public function inicio() {
-    return view('news_feed');
+    return view('noticias.news_feed');
   }
 
   public function redactar() {
-    return view('nueva_noticia');
+    return view('noticias.nueva_noticia');
+  }
+
+  public function cuerpo() {
+    return view('noticias.cuerpo_noticia');
   }
 
   public function nuevo(Request $request) {

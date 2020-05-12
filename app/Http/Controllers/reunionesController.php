@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 class reunionesController extends Controller
 {
   public function listar() {
-    return view('reuniones');
+    return view('actividades.reuniones');
+  }
+
+  public function verCalendario(){
+    return view('actividades.calendario');
   }
 
   public function crear(Request $request) {

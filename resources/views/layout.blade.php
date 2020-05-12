@@ -111,22 +111,22 @@
                     </li>
                     <li class="menu-title">Gestión de barrio</li><!-- /.menu-title -->
                     <!-- /.elementos del proyecto -->
-                    <li><a href="noticias"><i class="menu-icon fas fa-newspaper"></i>News Feed</a></li>
-                    <li><a href="vecinos"> <i class="menu-icon fas fa-user-friends"></i>Lista de vecinos</a></li>
+                    <li><a href="{{ action('noticiasController@inicio') }}"><i class="menu-icon fas fa-newspaper"></i>News Feed</a></li>
+                    <li><a href="{{ action('vecinosController@listar') }}"> <i class="menu-icon fas fa-user-friends"></i>Lista de vecinos</a></li>
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-clock"></i>Actividades</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="far fa-calendar-alt"></i><a href="calendario">Calendario</a></li>
-                            <li><i class="fas fa-handshake"></i><a href="reuniones">Reuniones</a></li>
+                            <li><i class="far fa-calendar-alt"></i><a href="{{ action('reunionesController@verCalendario') }}">Calendario</a></li>
+                            <li><i class="fas fa-handshake"></i><a href="{{ action('reunionesController@listar') }}">Reuniones</a></li>
                         </ul>
                     </li>
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-info"></i>Información</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="far fas fa-smile-wink"></i><a href="instrucciones">Instrucciones</a></li>
-                            <li><i class="far fa-address-book"></i><a href="contactos">Lista de contactos</a></li>
+                            <li><i class="far fas fa-smile-wink"></i><a href="#">Instrucciones</a></li>
+                            <li><i class="far fa-address-book"></i><a href="{{ action('contactosController@listar') }}">Lista de contactos</a></li>
                         </ul>
                     </li>
 
@@ -136,10 +136,10 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-users"></i>Usuarios</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fas fa-user"></i><a href="usuarios">Ver usuarios</a></li>
-                            <li><i class="menu-icon fas fa-user-plus"></i><a href="agregar_usuario">Agregar usuario</a></li>
+                            <li><i class="menu-icon fas fa-user"></i><a href={{ action('usuariosController@listar') }}>Ver usuarios</a></li>
+                            <li><i class="menu-icon fas fa-user-plus"></i><a href="#">Agregar usuario</a></li>
                         </ul>
-                        <li><a href="estadisticas"> <i class="menu-icon fas fa-chart-line"></i>Datos Estadísticos</a></li>
+                        <li><a href="{{ action('estadisticasController@mostrar') }}"> <i class="menu-icon fas fa-chart-line"></i>Datos Estadísticos</a></li>
                     </li>
 
 
@@ -155,8 +155,8 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="./"><img src="{{asset('images/logo.png')}}" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="./"><img src="{{asset('images/logo2.png')}}" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
@@ -201,7 +201,7 @@
                             <div class="dropdown-menu" aria-labelledby="message">
                                 <p class="red">Tienes # mensajes nuevos</p>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{{asset('images/avatar/1.jpg')}}"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Nombre Apellido</span>
                                         <span class="time float-right">Justo ahora</span>
@@ -209,7 +209,7 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{{asset('images/avatar/2.jpg')}}"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Nombre Apellido</span>
                                         <span class="time float-right">Hace 5 minutos</span>
@@ -217,7 +217,7 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{{asset('images/avatar/3.jpg')}}"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Nombre Apellido</span>
                                         <span class="time float-right">Hace 1 hora</span>
@@ -225,31 +225,29 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{{asset('images/avatar/4.jpg')}}"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Nombre Apellido</span>
                                         <span class="time float-right">Hace 1 día</span>
                                         <p>Contenido del mensaje Contenido del mensaje</p>
                                     </div>
                                 </a>
-                                  <a class="dropdown-item media" href="buzon"><span class="float-center">Ver todos los mensajes</span></a>
+                                  <a class="dropdown-item media" href="{{ action('mensajesController@buzon') }}"><span class="float-center">Ver todos los mensajes</span></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="{{asset('images/admin.jpg')}}" alt="User Avatar">
                         </a>
-
 
                         <div class="user-menu dropdown-menu" style="min-width: 230px; padding: 0px 0px;">
                           <a href="../configuraciones/" >
 
-
                             <a class="nav-link" href="#" style="background-color: #000000; color: #ffffff;"><i class="fa fa- user"></i>Nombres Apellido Apellido</a>
 
-                            <a class="nav-link" href="#">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-cog"></i>Configuración del perfil</a>
+                            <a class="nav-link" href="{{ action('usuariosController@informacion') }}">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-cog"></i>Configuración del perfil</a>
                             <a class="nav-link" href="#">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-power-off"></i>Cerrar sesión</a>
                         </div>
                     </div>

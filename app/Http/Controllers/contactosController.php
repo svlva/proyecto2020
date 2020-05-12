@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class contactosController extends Controller
 {
     public function listar(){
-      return view('contactos');
+      return view('informacion/contactos');
     }
 
     public function crear(Request $request) {
