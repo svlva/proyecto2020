@@ -44,17 +44,20 @@
         <h5 class="modal-title" id="mediumModalLabel">Registrar nuevo vecino</h5>
       </div>
       <div class="modal-body">
+        <form class="" action="{{ action('vecinosController@crear')}}" method="post">
+          {{ csrf_field() }}
         <div class="row">
           <div class="col-lg-6">
             <div class="form-group">
-              <label for="apellido_m" class="control-label mb-1">Apellido Materno <b style="color: red;">*</b></label>
-              <input style="text-transform:capitalize" id="apellido_m" name="apellido_m" type="text" class="form-control" aria-required="true" aria-invalid="false" value="" onkeypress="return soloLetras(event)" onkeypress="return soloLetras(event)" onkeyup="validarInput()">
-            </div>
-            </div>
-            <div class="col-lg-6">
-            <div class="form-group">
               <label for="apellido_p" class="control-label mb-1">Apellido Paterno <b style="color: red;">*</b></label>
               <input style="text-transform:capitalize" id="apellido_p" name="apellido_p" type="text" class="form-control" aria-required="true" aria-invalid="false" value=""  onkeypress="return soloLetras(event)" onkeypress="return soloLetras(event)" onkeyup="validarInput()">
+            </div>
+          </div>
+          <div class="col-lg-6">
+              {{ csrf_field() }}
+            <div class="form-group">
+              <label for="apellido_m" class="control-label mb-1">Apellido Materno <b style="color: red;">*</b></label>
+              <input style="text-transform:capitalize" id="apellido_m" name="apellido_m" type="text" class="form-control" aria-required="true" aria-invalid="false" value="" onkeypress="return soloLetras(event)" onkeypress="return soloLetras(event)" onkeyup="validarInput()">
             </div>
             </div>
         </div>
@@ -73,7 +76,7 @@
               <div class="input-group">
               <input id="ci" name="ci" type="text" class="form-control" aria-required="true" aria-invalid="false" value="" onkeypress="return soloNumeros(event)">
               <span class="input-group-btn">
-                 <select class="custom-select" name="departamento">
+                 <select class="custom-select" name="departamento" id="departamento">
                    <option value="LP">LP</option>
                    <option value="CB">CB</option>
                    <option value="SC">SC</option>
@@ -97,9 +100,9 @@
               <div class="col-lg-4">
                 <div class="form-group">
                   <label for="genero" class="control-label mb-1">Género</label> <b style="color: red;">*</b>
-                  <select class="form-control" name="">
+                  <select class="form-control" name="genero">
                     <option value="Masculino">Masculino</option>
-                    <option value="Masculino">Femenino</option>
+                    <option value="Femenino">Femenino</option>
                   </select>
                 </div>
                 </div>
@@ -134,8 +137,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Agregar</button>
+        <button type="submit" class="btn btn-primary">Agregar</button>
       </div>
+      </form>
     </div>
   </div>
 </div>

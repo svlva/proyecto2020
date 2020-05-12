@@ -30,8 +30,8 @@ animation: gradient 30s ease infinite;
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href=" {{asset('images/logo2.png')}}">
-    <link rel="shortcut icon" href=" {{asset('images/logo2.png')}}">
+    <link rel="apple-touch-icon" href=" {{asset('images/logo3.png')}}">
+    <link rel="shortcut icon" href=" {{asset('images/logo3.png')}}">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" rel="stylesheet" />

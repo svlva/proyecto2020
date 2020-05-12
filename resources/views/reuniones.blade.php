@@ -59,6 +59,8 @@
                 <h5 class="modal-title" id="mediumModalLabel">Crear nueva reunión</h5>
               </div>
               <div class="modal-body">
+                <form class="" action="{{ action('reunionesController@crear')}}" method="post">
+                  {{ csrf_field() }}
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
@@ -103,6 +105,7 @@
                     </div>
                     </div>
                 </div>
+                  {{ csrf_field() }}
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="form-group">
@@ -131,7 +134,7 @@
                   <div class="col-lg-12">
                     <div class="form-group">
                       <label for="organizador" class="control-label mb-1">Organizador del evento</label>
-                      <input style="text-transform:capitalize" id="organizador" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false">
+                      <input style="text-transform:capitalize" id="organizador" name="organizador" type="text" class="form-control" aria-required="true" aria-invalid="false">
                     </div>
                     </div>
                 </div>
@@ -139,7 +142,7 @@
                   <div class="col-lg-12">
                     <div class="form-group">
                       <label for="presentador" class="control-label mb-1">Presentador del evento <b style="color: red;">*</b></label>
-                      <input style="text-transform:capitalize" id="presentador" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" onkeypress="return soloLetras(event)" >
+                      <input style="text-transform:capitalize" id="presentador" name="presentador" type="text" class="form-control" aria-required="true" aria-invalid="false" onkeypress="return soloLetras(event)" >
                     </div>
                     </div>
                 </div>
@@ -147,8 +150,9 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Agregar</button>
+                <button type="submit" class="btn btn-primary">Agregar</button>
               </div>
+              </form>
             </div>
           </div>
         </div>

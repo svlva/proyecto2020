@@ -15,7 +15,7 @@
         <div class="col-sm-4">
           <div class="page-header float-left">
             <div class="page-title">
-              <h1>Sección de Noticias</h1>
+              <h1>Contactos</h1>
             </div>
           </div>
         </div>
@@ -55,6 +55,8 @@
                     <h5 class="modal-title" id="mediumModalLabel">Registrar nuevo contacto</h5>
                   </div>
                   <div class="modal-body">
+                    <form class="" action="{{action('contactosController@crear')}}" method="post">
+                      {{ csrf_field() }}
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
@@ -131,8 +133,8 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Agregar</button>
-                  </div>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                  </div></form>
                 </div>
               </div>
             </div>

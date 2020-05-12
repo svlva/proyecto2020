@@ -36,7 +36,7 @@
   <div class="row">
     <div class="col-lg-12">
 
-      <a href="redactar" type="button" class="btn btn-primary btn-lg btn-block"><i class="fas fa-plus-circle"></i> Redactar nueva noticia</a>
+      <a href="noticias/redactar" type="button" class="btn btn-primary btn-lg btn-block"><i class="fas fa-plus-circle"></i> Redactar nueva noticia</a>
       <br>
       <br>
       <br>

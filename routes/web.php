@@ -29,16 +29,30 @@ Route::get('/calendario', function () {
     return view('calendar');
 });
 
-Route::get('/noticias', function () {
-    return view('news_feed');
-});
+// reuniones
+Route::get('/reuniones', 'reunionesController@listar');
+Route::post('/reuniones/crear', 'reunionesController@crear');
+// reuniones
+
+// noticias
+Route::get('/noticias', 'noticiasController@inicio');
+Route::get('/noticias/redactar', 'noticiasController@redactar');
+Route::post('/noticias/redactar/nuevo', 'noticiasController@nuevo');
+// FIN:noticias
+
+// vecinos
+Route::get('/vecinos', 'vecinosController@listar');
+Route::post('/vecinos/crear', 'vecinosController@crear');
+// FIN:vecinos
+
+// reuniones
+Route::get('/contactos', 'contactosController@listar');
+Route::post('/contactos/crear', 'contactosController@crear');
+// FIN:reuniones
+
 
 Route::get('/usuarios', function () {
     return view('tabla_usuarios');
-});
-
-Route::get('/redactar', function () {
-    return view('nueva_noticia');
 });
 
 Route::get('/formato-noticia', function () {
@@ -53,17 +67,9 @@ Route::get('/estadisticas', function () {
     return view('estadisticas');
 });
 
-Route::get('/vecinos', function () {
-    return view('vecinos');
-});
 
-Route::get('/contactos', function () {
-    return view('contactos');
-});
 
-Route::get('/reuniones', function () {
-    return view('reuniones');
-});
+
 
 Route::get('/buzon', function () {
     return view('buzon');

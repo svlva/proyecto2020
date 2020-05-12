@@ -54,13 +54,12 @@
                                   </div>-->
                               </div>
 
-                              <!-- Include stylesheet -->
-
-
                               <div class="card-body">
                                 <div class="form-group">
-                                  <label for="inputText3" class="col-form-label">Título de la noticia</label>
-                                  <input id="inputText3" type="text" class="form-control">
+                                  <form class="" action="{{ action('noticiasController@nuevo')}}" method="post">
+                                  {{ csrf_field() }}
+                                  <label for="titulo" class="col-form-label">Título de la noticia</label>
+                                  <input id="titulo" name="titulo" type="text" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -71,18 +70,17 @@
                                 <div class="row">
                                   <div class="col-12">
                                     <div class="form-group">
-
                                         <label for="textarea">Cuerpo de la noticia</label>
-                                        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-
-
+                                        <link href="{{asset('css/quill.snow.css')}}" rel="stylesheet">
 
                                         <!-- Create the editor container -->
                                         <div id="editor">
                                         </div>
 
+                                        <textarea id='text1' name="contenido" rows="8" cols="80" style="display:none;"></textarea>
+
                                         <!-- Include the Quill library -->
-                                        <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+                                        <script src=" {{asset('js/quill.js')}}"></script>
 
                                         <!-- Initialize Quill editor -->
                                         <script>
@@ -93,7 +91,6 @@
                                           [{ 'header': 1 }, { 'header': 2 }],               // custom button values
                                           [{ 'list': 'ordered'}, { 'list': 'bullet' }],
                                           [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-                                          [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
                                           [{ 'direction': 'rtl' }],                         // text direction
 
                                           [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
@@ -111,6 +108,28 @@
                                             toolbar: toolbarOptions
                                           },
                                           theme: 'snow'
+                                        });
+
+                                        $(document).on('click', function() {
+                                          $('#text1').val($('.ql-editor').html());
+                                        });
+                                        $('.ql-toolbar').on('click', function() {
+                                          $('#text1').val($('.ql-editor').html());
+                                        });
+                                        $('.ql-editor').on('click', function() {
+                                          $('#text1').val($(this).html());
+                                        });
+                                        $(document).on('ready', function() {
+                                          $('#text1').val($('.ql-editor').html());
+                                        });
+                                        $('.ql-editor').on('keyup', function() {
+                                          $('#text1').val($(this).html());
+                                        });
+                                        $('.ql-editor').on('keypress', function() {
+                                          $('#text1').val($(this).html());
+                                        });
+                                        $('.ql-editor').on('keydown', function() {
+                                          $('#text1').val($(this).html());
                                         });
                                       </script>
                                     </div>
@@ -138,7 +157,7 @@
                                     </p>
                                     </div>
                                     </div>
-
+                                    </form>
                                   </div>
                                 </div>
 
@@ -157,6 +176,12 @@
 
 </div>
 </div></div>
+
+<!-- Establecemos el atributo ID al cuerpo de la noticia-->
+  <!--<script>
+    document.getElementsByTagName("p")[9].setAttribute("id", "contenido");
+</script>-->
+<!-- FIN:::::::::::: Establecemos el atributo ID al cuerpo de la noticia-->
 
 @endsection
 
