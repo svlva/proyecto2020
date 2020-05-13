@@ -252,71 +252,70 @@
   </div>
 </div></div>
 
-@endsection
-
-@endsection
-
 <script type="text/javascript">
-$('#fnac').datepicker({
-  minDate: '-25550d',
-  changeMonth: true,
-  changeYear: true,
-  maxDate: '-6570d',
-  onSelect: function(dateStr) {
+  $('#fnac').datepicker({
+    minDate: '-25550d',
+    changeMonth: true,
+    changeYear: true,
+    maxDate: '-6570d',
+    onSelect: function(dateStr) {
       var min = $(this).datepicker('getDate') || new Date();
       var max = new Date(min.getTime());
-  }
-});
+    }
+  });
 </script>
 <script type="text/javascript">
-function soloNumeros(e){
-  key = e.keyCode || e.which;
-  tecla = String.fromCharCode(key).toLowerCase();
-  letras = "1234567890";
-  especiales = "8-37-39-46";
+  function soloNumeros(e){
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = "1234567890";
+    especiales = "8-37-39-46";
+    //--------------------------
+    tecla_especial = false
+    for(var i in especiales){
+      if(key == especiales[i]){
+        tecla_especial = true;
+      break;
+    }
+  }
   //--------------------------
-  tecla_especial = false
-  for(var i in especiales){
-    if(key == especiales[i]){
-      tecla_especial = true;
-      break;
+    if(letras.indexOf(tecla)==-1 && !tecla_especial){
+      return false;
     }
   }
-//--------------------------
-  if(letras.indexOf(tecla)==-1 && !tecla_especial){
-    return false;
-  }
-}
 </script>
 <script type="text/javascript">
-function validarUsuarioNombree(e){
-  key = e.keyCode || e.which;
-  tecla = String.fromCharCode(key).toLowerCase();
-  letras = "1234567890-_abcdefghijklmnopqrstuvwxyz";
-  especiales = "8-37-39-46";
+  function validarUsuarioNombree(e){
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = "1234567890-_abcdefghijklmnopqrstuvwxyz";
+    especiales = "8-37-39-46";
 
-  tecla_especial = false
-  for(var i in especiales){
-    if(key == especiales[i]){
-      tecla_especial = true;
-      break;
-    }
-  }
-
-  if(letras.indexOf(tecla)==-1 && !tecla_especial){
-    return false;
-  }
-}
-</script>
-<script type="text/javascript">
-function validarInput(){
-  if ((document.getElementById("password-1").value.length >= 6) && (document.getElementById("password-2").value.length >= 6)) {
-    if (document.getElementById("password-1").value === document.getElementById("password-2").value) {
-      document.getElementById("guardar-cambios-c").disabled = false;
-    }   else  {
-        document.getElementById("guardar-cambios-c").disabled = true;
+    tecla_especial = false
+    for(var i in especiales){
+      if(key == especiales[i]){
+        tecla_especial = true;
+        break;
       }
-  }
+    }
 
-}
+    if(letras.indexOf(tecla)==-1 && !tecla_especial){
+      return false;
+    }
+  }
 </script>
+<script type="text/javascript">
+  function validarInput(){
+    if ((document.getElementById("password-1").value.length >= 6) && (document.getElementById("password-2").value.length >= 6)) {
+      if (document.getElementById("password-1").value === document.getElementById("password-2").value) {
+        document.getElementById("guardar-cambios-c").disabled = false;
+      }   else  {
+          document.getElementById("guardar-cambios-c").disabled = true;
+      }
+    }
+  }
+</script>
+
+@endsection
+
+@endsection
